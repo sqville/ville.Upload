@@ -21,6 +21,7 @@
 * Easily revert back to the standard button look and feel by simply setting the controls appearance property to "button" 
 
 **Screen Shot**
+
 <img src="ville_Upload_capture1.PNG" alt="ville.Upload control examples">
 
 <!-- GETTING STARTED -->
@@ -35,10 +36,12 @@ $ qx package install sqville/ville.Upload
 
 <!-- DEMO -->
 ## Demo
-See this control in action using the ville [Wax Demo App](http://qooxdoo.org/qxl.packagebrowser/qxl.packagebrowser/demos/sqville/ville.Embed/waxdemo/)
+See this control in action using the [Qooxdoo Demo App](https://sqville.github.io/ville.Upload/published/) 
+
 <!-- ROADMAP -->
 ## Roadmap
 None. This is a straight forward solution. Reach out to the author if you feel that something is missing.
+
 <!-- LICENSE -->
 ## License
 Distributed under the MIT License. See `LICENSE` for more information.
