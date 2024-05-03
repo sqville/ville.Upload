@@ -1,0 +1,4 @@
+.ville-upload-dragndrop-enter {
+    opacity: .7; 
+    border: 1px solid orange !important;
+}
