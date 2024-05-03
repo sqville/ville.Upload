@@ -1,10 +1,8 @@
 /* ************************************************************************
 
-   Copyright: 2022 
-
    License: MIT license
 
-   Authors: sqville
+   Authors: Chris Eskew (sqville) - sqville@gmail.com
 
 ************************************************************************ */
 
@@ -59,9 +57,9 @@ qx.Class.define("demo.Application",
       */
 
       // Create an Upload button
-      var uploadbutton1 = new ville.Upload("Drap and drop files here, or click to browse", "qx/icon/Tango/64/actions/go-top.png").set({ iconPosition: "top", multiple: true });
+      var uploadbutton1 = new ville.Upload("Drag and drop files here, or click to browse", "qx/icon/Tango/64/actions/go-top.png").set({ iconPosition: "top", multiple: true });
 
-      var uploadbutton2 = new ville.Upload("Drap and drop files here, or click to browse", "qx/icon/Tango/64/actions/go-top.png").set({ appearance: "button", iconPosition: "top", multiple: true });
+      var uploadbutton2 = new ville.Upload("Drag and drop files here, or click to browse", "qx/icon/Tango/64/actions/go-top.png").set({ appearance: "button", iconPosition: "top", multiple: true });
 
       // Document is the application root
       var doc = this.getRoot();

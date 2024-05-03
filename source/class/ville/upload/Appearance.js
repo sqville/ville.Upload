@@ -1,10 +1,8 @@
 /* ************************************************************************
 
-   Copyright: 2022 
-
    License: MIT license
 
-   Authors: sqville
+   Authors: Chris Eskew (sqville) - sqville@gmail.com
 
 ************************************************************************ */
 

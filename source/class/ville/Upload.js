@@ -1,3 +1,11 @@
+/* ************************************************************************
+
+   License: MIT license
+
+   Authors: Chris Eskew (sqville) - sqville@gmail.com
+
+************************************************************************ */
+
 qx.Class.define("ville.Upload", {
     
 	extend: qx.ui.form.FileSelectorButton,
@@ -20,7 +28,7 @@ qx.Class.define("ville.Upload", {
 		if (cssfile)
 			this.__externalcssfile = cssfile;
 		
-		// Include and external CSS file for the dragover native event
+		// Include an external CSS file for the dragover native event
         var uri = qx.util.ResourceManager.getInstance().toUri(
             this.__externalcssfile
         );
@@ -42,16 +50,16 @@ qx.Class.define("ville.Upload", {
         this.addListenerOnce("appear", function(e) {
 
            	//*** Required - grab the object's Dom Element and attach native drag and drop event listeners
-           	//var domtable = this.getContentElement().getDomElement();
-           	var domtable = e.getTarget().getContentElement().getDomElement();
+           	//var domelem = this.getContentElement().getDomElement();
+           	var domelem = e.getTarget().getContentElement().getDomElement();
 
            	var dragcssclassname = this.__dragovercssclassname;
    
 			//*** ADD DRAG AND DROP EVENTS TO THE DOM ELEMENT:
 			//**  Adding events using qx.bom.Event object is the same as adding an "on" event directly to the Dom Element,
-			//**  for example, the "addNativeListener()" function is the same as: domtable.ondrop = function() {};
+			//**  for example, the "addNativeListener()" function is the same as: domelem.ondrop = function() {};
 			//*** DRAGENTER
-			qx.bom.Event.addNativeListener(domtable, "dragenter", function(e) {
+			qx.bom.Event.addNativeListener(domelem, "dragenter", function(e) {
 				if (e.target.nodeType == 1) {
 					e.dataTransfer.dropEffect = 'copy';
 					qx.bom.Event.preventDefault(e);
@@ -60,14 +68,14 @@ qx.Class.define("ville.Upload", {
 			});
 
            	//*** DRAGLEAVE
-	    	qx.bom.Event.addNativeListener(domtable, "dragleave", function(e) {    		
+	    	qx.bom.Event.addNativeListener(domelem, "dragleave", function(e) {    		
 	    		if (e.target.nodeType == 1) {
 	    			qx.bom.element.Class.remove(this, dragcssclassname);
 	    		}	
 	    	});
 	    	
 	    	//*** DRAGEXIT
-	    	qx.bom.Event.addNativeListener(domtable, "dragexit", function(e) {
+	    	qx.bom.Event.addNativeListener(domelem, "dragexit", function(e) {
 	    		qx.bom.Event.stopPropagation(e);
 	    		qx.bom.Event.preventDefault(e);
 	    		qx.bom.element.Class.remove(this, dragcssclassname);
@@ -75,7 +83,7 @@ qx.Class.define("ville.Upload", {
 	    	});
 	    	
 	    	//*** DRAGEND
-	    	qx.bom.Event.addNativeListener(domtable, "dragend", function(e) {
+	    	qx.bom.Event.addNativeListener(domelem, "dragend", function(e) {
 	    		qx.bom.Event.stopPropagation(e);
 	    		qx.bom.Event.preventDefault(e);
 	    		qx.bom.element.Class.remove(this, dragcssclassname);
@@ -83,7 +91,7 @@ qx.Class.define("ville.Upload", {
 	    	});
 	
 	     	//*** DRAGOVER
-	     	qx.bom.Event.addNativeListener(domtable, "dragover", function(e) {		
+	     	qx.bom.Event.addNativeListener(domelem, "dragover", function(e) {		
 		    	if (e.target.nodeType == 1) {
 	    			e.dataTransfer.dropEffect = 'copy';
 	    			qx.bom.Event.preventDefault(e);
@@ -93,7 +101,7 @@ qx.Class.define("ville.Upload", {
 	     	});
 	
 	     	//*** DROP
-	     	qx.bom.Event.addNativeListener(domtable, "drop", function(e) {		
+	     	qx.bom.Event.addNativeListener(domelem, "drop", function(e) {		
 	    		qx.bom.Event.preventDefault(e);
 	    		qx.bom.Event.stopPropagation(e);
 	    		qx.bom.element.Class.remove(this, dragcssclassname);
@@ -121,7 +129,7 @@ qx.Class.define("ville.Upload", {
     */
     members: {
         
-        __dragovercssclassname: "sqvdocumentdndenter2022",
+        __dragovercssclassname: "ville-upload-dragndrop-enter",
 
 		__externalcssfile : "ville/upload/css/dragndrop.css"
     }
